@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 public class Veitingar {
 
     private StringProperty heiti = new SimpleStringProperty();
-    private IntegerProperty verd = new SimpleIntegerProperty();
+    public IntegerProperty verd = new SimpleIntegerProperty();
 
 
     public Veitingar(String heiti, int verd) {
@@ -23,5 +23,9 @@ public class Veitingar {
 
     public static void main(String[] args) {
 
+    }
+
+    public IntegerProperty getVerd() {
+        return verd;
     }
 }
