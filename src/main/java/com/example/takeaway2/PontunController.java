@@ -64,9 +64,9 @@ public class PontunController {
     public void fxInnskraningHandler() {
 
     }
-
+    
     public void fxGreidaHandler() {
-
+        ViewSwitcher.switchTo(View.ABOUT);
     }
 
     public void initialize() {
