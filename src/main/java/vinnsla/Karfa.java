@@ -8,6 +8,9 @@ public class Karfa extends Matsedill {
     //þetta gerir að heildarVerd er 0 þegar það er created
     private static IntegerProperty heildarVerd = new SimpleIntegerProperty(0);
 
+    public Karfa() {
+    }
+
     public Integer reiknaHeildarverd() {
         int h = 0;
         for (int i = 0; i < veitingar.size(); i++) {

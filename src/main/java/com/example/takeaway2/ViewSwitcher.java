@@ -13,9 +13,17 @@ import java.util.Map;
  */
 public class ViewSwitcher {
 
-    private static Map<View, Parent> cache = new HashMap<>();
 
     private static Scene scene;
+    //til að tengja fxkarfa frá Pcontroller við Gcontroller
+    private static PontunController pontunController;
+
+    private static Map<View, Parent> cache = new HashMap<>();
+
+    //til að tengja fxkarfa frá Pcontroller við Gcontroller
+    public static PontunController getPontunController() {
+        return pontunController;
+    }
 
     public static void setScene(Scene scene) {
         ViewSwitcher.scene = scene;

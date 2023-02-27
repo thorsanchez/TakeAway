@@ -39,12 +39,18 @@ public class PontunController {
 
     public void fxSetjaKorfuHandler(ActionEvent event) {
         //bæta við vöru þegar ýtt er á "bæta" takkann
-        ObservableList<Veitingar> voldVeiting = fxmsedill.getSelectionModel().getSelectedItems();
+        Veitingar voldVeiting = fxmsedill.getSelectionModel().getSelectedItem();
         fxkarfa.getItems().addAll(voldVeiting);
         //þurfum að uppfæra heildarverð
         //þurfum að kalla á fallið hvert skipti
-        int totalVerd = karfa.reiknaHeildarverd();
-        heildarVerdLabel.setText(String.valueOf(totalVerd));
+        //fxkarfa.getItems().geaddListener();
+        karfa.heildarVerdProperty().set(karfa.heildarVerdProperty().get() + voldVeiting.getVerd().get());
+        heildarVerdLabel.setText(karfa.heildarVerdProperty().get() + "");
+
+        //karfa.addListener((observableValue, number, t1) -> heildarVerdLabel.setText(t1.toString()));
+        // int totalVerd = karfa.reiknaHeildarverd();
+        //heildarVerdLabel.setText(String.valueOf(totalVerd));
+
     }
 
 
@@ -64,10 +70,15 @@ public class PontunController {
     public void fxInnskraningHandler() {
 
     }
-    
+
     public void fxGreidaHandler() {
         ViewSwitcher.switchTo(View.ABOUT);
     }
+
+    public ListView<Veitingar> getKarfaListView() {
+        return fxkarfa;
+    }
+
 
     public void initialize() {
         //notum bind til að tengja bæta takkann við körfuna (notum disableProperty þannig að hnappur sé óvirkur þegar
