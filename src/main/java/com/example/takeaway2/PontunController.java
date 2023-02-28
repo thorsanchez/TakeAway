@@ -12,6 +12,9 @@ import vinnsla.Karfa;
 import vinnsla.MatsedillView;
 import vinnsla.Veitingar;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PontunController {
     @FXML
     private Button innskraning;
@@ -35,6 +38,8 @@ public class PontunController {
 
 
     private Karfa karfa = new Karfa();
+
+    private static Map<View, Object> controllers = new HashMap<>();
 
 
     public void fxSetjaKorfuHandler(ActionEvent event) {
@@ -71,6 +76,13 @@ public class PontunController {
 
     }
 
+    public void clearkarfa() {
+        fxkarfa.getItems().clear();
+
+        // clear fxkarfa
+        //fxkarfa.clear();
+    }
+
     public void fxGreidaHandler() {
         ViewSwitcher.switchTo(View.ABOUT);
     }
@@ -93,8 +105,3 @@ public class PontunController {
         fxmsedill.setItems(veitingar);
     }
 }
-
-
-
-
-

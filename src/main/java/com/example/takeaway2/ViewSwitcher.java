@@ -15,15 +15,9 @@ public class ViewSwitcher {
 
 
     private static Scene scene;
-    //til að tengja fxkarfa frá Pcontroller við Gcontroller
-    private static PontunController pontunController;
-
     private static Map<View, Parent> cache = new HashMap<>();
+    private static final Map<View, Object> controllers = new HashMap<>();
 
-    //til að tengja fxkarfa frá Pcontroller við Gcontroller
-    public static PontunController getPontunController() {
-        return pontunController;
-    }
 
     public static void setScene(Scene scene) {
         ViewSwitcher.scene = scene;
@@ -45,10 +39,12 @@ public class ViewSwitcher {
             } else {
                 System.out.println("Loading from FXML");
 
-                root = FXMLLoader.load(ViewSwitcher.class.getResource(view.getFileName())
+                FXMLLoader loader = new FXMLLoader();
+                root = loader.load(ViewSwitcher.class.getResource(view.getFileName())
                 );
 
                 cache.put(view, root);
+                controllers.put(view, loader.getController());
             }
 
             scene.setRoot(root);
@@ -56,5 +52,9 @@ public class ViewSwitcher {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Object lookup(View v) {
+        return controllers.get(v);
     }
 }

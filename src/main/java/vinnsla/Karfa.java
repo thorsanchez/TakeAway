@@ -3,6 +3,7 @@ package vinnsla;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.ObservableList;
 
 public class Karfa extends Matsedill {
     //þetta gerir að heildarVerd er 0 þegar það er created
@@ -18,6 +19,16 @@ public class Karfa extends Matsedill {
         }
         heildarVerd.set(h);
         return heildarVerd.getValue();
+    }
+
+    public ObservableList<Veitingar> eydaVeitingum() {
+        veitingar.removeAll(veitingar);
+        setheildarverd(0);
+        return veitingar;
+    }
+
+    public void setheildarverd(int heildarVerd) {
+        this.heildarVerd.set(heildarVerd);
     }
 
     public IntegerProperty heildarVerdProperty() {

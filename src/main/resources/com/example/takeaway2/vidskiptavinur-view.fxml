@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+            prefWidth="480.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.takeaway2.VidskiptavinurController">
+    <header>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+            <children>
+                <TextField fx:id="fxNafn" layoutX="149.0" layoutY="50.0"/>
+                <TextField fx:id="fxHeimilisfang" layoutX="149.0" layoutY="100.0"/>
+                <Label layoutX="14.0" layoutY="55.0" prefHeight="17.0" prefWidth="67.0" text="Nafn:"/>
+                <Label layoutX="14.0" layoutY="105.0" text="Heimilisfang:"/>
+            </children>
+        </AnchorPane>
+    </header>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#fxInnskra" prefHeight="51.0" prefWidth="480.0"
+                        text="Innskrá"/>
+            </children>
+        </AnchorPane>
+    </content>
+    <expandableContent>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0"/>
+    </expandableContent>
+</DialogPane>
